@@ -84,7 +84,9 @@ puts "Created #{Cocktail.count} cocktails"
 
 Cocktail.all.each do |cocktail|
   cocktail.remote_photo_url = "https://source.unsplash.com/featured/?{milk-tea}"
+
   cocktail.save
+  sleep(2)
 end
 
 puts "created pictures!"
