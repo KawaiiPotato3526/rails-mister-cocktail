@@ -6,7 +6,7 @@
     <h2><%= ingredient.name %></h2>
   <% end  %>
   <% @cocktail.doses.each do |dose| %>
-    <h6> with <%= rand(1..10) %><%= dose.description %> toppings</h6>
+    <h6> with <%= dose.description %> toppings</h6>
     <%= link_to "Add a topping detail", new_cocktail_dose_path(@cocktail), class: "btn btn-success"%>
     <%= link_to "Delete", dose_path(dose), method: "DELETE", class: "btn btn-success"%>
     <%= link_to "Back to List", cocktails_path, class: "btn btn-danger"%>

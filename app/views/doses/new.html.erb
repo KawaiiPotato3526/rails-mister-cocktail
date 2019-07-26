@@ -1,6 +1,6 @@
 <div class="container m-4 text-left">
   <%= simple_form_for [@cocktail, @dose] do |f| %>
-    <h2>Add a dose detail for <%= @cocktail.name %></h2>
+    <h2>Add a topping detail for <%= @cocktail.name %></h2>
     <%= f.input :description, placeholder: "E.g.3 tea spoon" %>
     <%= f.association :ingredient%>
     <%= f.submit "add my review", class: "btn btn-success" %>
