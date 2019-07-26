@@ -1,14 +1,18 @@
-<div class="text-center">
-  <h2>Find out more about..</h2>
-  <h2><%= @cocktail.name %></h2>
-  <%= image_tag @cocktail.photo.url(:bright_face) %>
-  <h6>Our Ingredient is made out of <% @cocktail.ingredients.each do |ingredient|%> </h3>
-    <h2><%= ingredient.name %></h2>
-  <% end  %>
-  <% @cocktail.doses.each do |dose| %>
-    <h6> with <%= dose.description %> toppings</h6>
-    <%= link_to "Add a topping detail", new_cocktail_dose_path(@cocktail), class: "btn btn-success"%>
-    <%= link_to "Delete", dose_path(dose), method: "DELETE", class: "btn btn-success"%>
-    <%= link_to "Back to List", cocktails_path, class: "btn btn-danger"%>
-  <% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(http://supernummy.com/wp-content/uploads/2015/03/Milk-Tea-with-Boba-4.jpg);">
+  <div class="text-center">
+    <h5>Find out more about..</h5>
+    <h2 class="text-white"><%= @cocktail.name %></h2>
+    <div class="p-4"><%= image_tag @cocktail.photo.url(:thumnail) %></div>
+    <h6>Our Ingredient is made out of <% @cocktail.ingredients.each do |ingredient|%> </h3>
+      <h2 class="text-white"><%= ingredient.name %></h2>
+    <% end  %>
+    <% @cocktail.doses.each do |dose| %>
+      <h4> with <strong class="text-white"> <%= dose.description %> </strong>toppings</h4>
+      <div class="m-4">
+        <%= link_to "Add a topping detail", new_cocktail_dose_path(@cocktail), class: "btn btn-outline-success"%>
+        <%= link_to "Delete", dose_path(dose), method: "DELETE", class: "btn btn-outline-success"%>
+        <%= link_to "Back to List", cocktails_path, class: "btn btn-outline-danger"%>
+      </div>
+    <% end %>
+  </div>
 </div>
