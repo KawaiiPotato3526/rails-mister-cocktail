@@ -74,3 +74,17 @@ read('https://raw.githubusercontent.com/seatuna/bubble-tea-api/master/data/drink
 puts "Created #{Ingredient.count} ingredients"
 puts "Created #{Dose.count} doses"
 puts "Created #{Cocktail.count} cocktails"
+
+
+
+# url = "https://source.unsplash.com/featured/?{boba}"
+# cocktail = Cocktail.new(name: 'boba-random')
+# cocktail.remote_photo_url = url
+# cocktail.save
+
+Cocktail.all.each do |cocktail|
+  cocktail.remote_photo_url = "https://source.unsplash.com/featured/?{milk-tea}"
+  cocktail.save
+end
+
+puts "created pictures!"

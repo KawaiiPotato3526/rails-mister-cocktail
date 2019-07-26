@@ -4,6 +4,7 @@
   <% @cocktails.each do |cocktail| %>
     <div class="m-4">
       <h2> <%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+      <%= image_tag cocktail.photo.url(:bright_face) %>
       <%= link_to "Buy ME", cocktail_path(cocktail), class: "btn btn-primary"%>
     </div>
   <% end %>

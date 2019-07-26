@@ -1,12 +1,13 @@
 <div class="text-center">
   <h2>Find out more about..</h2>
   <h2><%= @cocktail.name %></h2>
+  <%= image_tag @cocktail.photo.url(:bright_face) %>
   <h6>Our Ingredient is made out of <% @cocktail.ingredients.each do |ingredient|%> </h3>
     <h2><%= ingredient.name %></h2>
   <% end  %>
   <% @cocktail.doses.each do |dose| %>
-    <h6> with <%= rand(1..10) %><%= dose.description %></h6>
-    <%= link_to "Add a dose detail", new_cocktail_dose_path(@cocktail), class: "btn btn-success"%>
+    <h6> with <%= rand(1..10) %><%= dose.description %> toppings</h6>
+    <%= link_to "Add a topping detail", new_cocktail_dose_path(@cocktail), class: "btn btn-success"%>
     <%= link_to "Delete", dose_path(dose), method: "DELETE", class: "btn btn-success"%>
     <%= link_to "Back to List", cocktails_path, class: "btn btn-danger"%>
   <% end %>
