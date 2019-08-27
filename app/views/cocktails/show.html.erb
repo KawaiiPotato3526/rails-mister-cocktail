@@ -1,18 +1,48 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(http://supernummy.com/wp-content/uploads/2015/03/Milk-Tea-with-Boba-4.jpg);">
-  <div class="text-center">
-    <h5>Find out more about..</h5>
-    <h2 class="text-white"><%= @cocktail.name %></h2>
-    <div class="p-4"><%= image_tag @cocktail.photo.url(:thumnail) %></div>
-    <h6>Our Ingredient is made out of <% @cocktail.ingredients.each do |ingredient|%> </h3>
-      <h2 class="text-white"><%= ingredient.name %></h2>
-    <% end  %>
-    <% @cocktail.doses.each do |dose| %>
-      <h4> with <strong class="text-white"> <%= dose.description %> </strong>toppings</h4>
-      <div class="m-4">
-        <%= link_to "Add a topping detail", new_cocktail_dose_path(@cocktail), class: "btn btn-outline-success"%>
-        <%= link_to "Delete", dose_path(dose), method: "DELETE", class: "btn btn-outline-success"%>
-        <%= link_to "Back to List", cocktails_path, class: "btn btn-outline-danger"%>
-      </div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dlipt45qd/image/upload/v1566882457/homemade-milk-bubble-tea-royalty-free-image-1000167478-1546450160_pec0pb.jpg);">
+  <div class="navbar navbar-fixed-top navbar-expand-sm navbar-light navbar-lewagon fixed-top">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "https://image.flaticon.com/icons/svg/1473/1473279.svg" %>
     <% end %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%= link_to "Home", cocktails_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Add Boba Idea🍵", new_cocktail_path, class: "nav-link"%>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="card-container">
+    <div class="card u-clearfix">
+      <div class="row">
+        <div class="column card-body">
+          <span class="card-author subtle">Olivia Shi</span>
+          <h2 class="card-title"><%= @cocktail.name %></h2>
+          <h6 class="card-description subtle">Our Ingredient is made out of <% @cocktail.ingredients.each do |ingredient|%> </h6>
+            <h2 style="color:black;"><%= ingredient.name %></h2>
+          <% end  %>
+          <% @cocktail.doses.each do |dose| %>
+            <h6 style="color:#aaa;"> with <%= dose.description %> toppings</h6>
+          <% end %>
+          <div class="card-read" style="color:grey">Detail</div>
+        </div>
+        <div class= "column2">
+          <div class="m-4" style="display: flex;
+    flex-direction: column;padding-top: 40px;">
+            <% @cocktail.doses.each do |dose| %>
+              <%= link_to "Add a Topping", new_cocktail_dose_path(@cocktail), class: "btn btn-outline-info"%>
+              <%= link_to "Delete this Boba", dose_path(dose), method: "DELETE", class: "btn btn-outline-info"%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="p-4"><%= image_tag @cocktail.photo.url(:show)%></div>
+    </div>
+    <div class="card-shadow"></div>
   </div>
 </div>

@@ -1,37 +1,54 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "http://tse2.mm.bing.net/th?id=OIP.cW09vplE5WRFTuV0gGy7yAHaHa&pid=Api&rs=1" %>
-  <% end %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to "Home", "#", class: "nav-link" %>
-      </li>
-    </ul>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://res.cloudinary.com/dlipt45qd/image/upload/v1566459129/giphy_mlmkrs.gif);">
+  <div class="navbar navbar-fixed-top navbar-expand-sm navbar-light navbar-lewagon fixed-top">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "https://image.flaticon.com/icons/svg/1473/1473279.svg" %>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%= link_to "Home", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Add Boba Idea🍵", new_cocktail_path, class: "nav-link"%>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.dribbble.com/users/1814226/screenshots/4049247/bubble-tea.gif);">
+  <!--from new-->
   <div class="container">
     <h1><span id="banner-typed-text"></span></h1>
-    <p>the world biggest <strong>Olivia's secret boba shop</strong>></p>
-    <a class="btn btn-outline-info text-white">Buy Now</a>
+    <p>Discover <strong>Olivia's secret boba recepies </strong>></p>
   </div>
+  <!-- <div class="text-white"><%= link_to "Add Boba", new_cocktail_path%></div> -->
 </div>
-<div class="content">
-  <h1 class="text-white text-center p-4">Olivia's secret bubbleTea Menu</h1>
-  <h3 class="text-center"> <%= link_to "+ Add a new boba menu", new_cocktail_path %></h3>
-  <div class="row" style="margin-left: 150px;">
-    <% @cocktails.each do |cocktail| %>
-      <div class="m-4 col-xs-8 col-sm-6 col-md-6 col-lg-3">
-        <div div class="card-category ">
-          <h4 class="text-secondary"> <%= cocktail.name %></h4>
-          <%= image_tag cocktail.photo.url(:thumnail) %>
-          <%= link_to "Check Me Out", cocktail_path(cocktail), class: "btn btn-warning"%>
+<div class="white">
+  <div class="content">
+    <div class="search-place">
+      <form id="content">
+        <input type="text" name="input2" class="input2" placeholder="Search for a boba..." id="search-input">
+        <button type="reset" class="search" id="search-btn"></button>
+      </form>
+    </div>
+    <h3 class="text-white text-center">Why Boba? </h3>
+    <p class="text-white text-justify">Bubble tea is one of my favorite things to sip on during the summer. Originating from Taiwan, bubble tea (波霸奶茶/珍珠奶茶) usually consists of sweetened tea with milk and the characteristic chewy tapioca balls, also known as boba (波霸). Bubble tea comes in many flavors: plain tea flavors such as black or jasmine tea, fruit flavors such as strawberry or honeydew, and even taro, which is a root vegetable commonly used in Asian dishes. (You can read more about the history of bubble tea here).
+      While I enjoy drinking bubble tea, I don’t particularly like the ones sold in the teahouse chains because they contain too much sugar. The good thing is that you can make bubble tea at home easily! In this bubble tea recipe, all you really need is tea, tapioca pearls, milk, and a sweetener.</p>
+    <div class="row" style="margin-left:150px">
+      <% @cocktails.each do |cocktail| %>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div div class="flip-card-front ">
+              <%= image_tag cocktail.photo.url(:bright_face) %>
+            </div>
+            <div class="flip-card-back">
+              <h3><%= link_to cocktail.name, cocktail_path(cocktail)%></h3>
+              <p><%= image_tag "https://image.flaticon.com/icons/svg/1473/1473279.svg", class: "icon"%><%= link_to "drink me",cocktail_path(cocktail)%></p>
+            </div>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

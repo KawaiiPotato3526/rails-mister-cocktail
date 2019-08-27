@@ -1,11 +1,25 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://engineering.grab.com/img/bubble-tea-craze-on-grabfood/image5.png);">
-  <div class="container m-4 text-left">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dlipt45qd/image/upload/v1566882539/image5_gf6qpl.png);">
+  <div class="navbar navbar-fixed-top navbar-expand-sm navbar-light navbar-lewagon fixed-top">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "https://image.flaticon.com/icons/svg/1473/1473279.svg" %>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%= link_to "Home", cocktails_path, class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="container ml-4 text-left">
     <%= simple_form_for [@cocktail, @dose] do |f| %>
-      <h2 class="text-white">Add a topping detail for <%= @cocktail.name %></h2>
-      <h5 class="text-white"><%= f.input :description, placeholder: "E.g.3 tea spoon" %></h5>
-      <h5 class="text-white"><%= f.association :ingredient%></h5>
-      <%= f.submit "Add my Topping", class: "btn btn-outline-success" %>
-      <%= link_to "Back to List", cocktails_path, class: "btn btn-outline-danger"%>
+      <h1>Add a topping detail for <%= @cocktail.name %></h1>
+      <%= f.association :ingredient, as: :text%>
+      <%= f.input :description, placeholder: "E.g.3 tea spoon" %>
+      <%= f.submit "Add my Topping", class: "btn btn-outline-info" %>
     <% end %>
   </div>
 </div>
