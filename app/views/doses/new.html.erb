@@ -17,8 +17,8 @@
   <div class="container ml-4 text-left">
     <%= simple_form_for [@cocktail, @dose] do |f| %>
       <h1>Add a topping detail for <%= @cocktail.name %></h1>
-      <%= f.association :ingredient, as: :text%>
-      <%= f.input :description, placeholder: "E.g.3 tea spoon" %>
+      <%= f.input :description, placeholder: "E.g.3 tea spoon", as: :text %>
+      <%= f.association :ingredient%>
       <%= f.submit "Add my Topping", class: "btn btn-outline-info" %>
     <% end %>
   </div>
